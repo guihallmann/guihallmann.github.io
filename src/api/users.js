@@ -32,13 +32,13 @@ export const getUserAlbums = async (userId) => {
   }
 };
 
-export const getUserTodos = async (userId) => {
+export const getUserTasks = async (userId) => {
   try {
     const response = await fetch(
       `https://jsonplaceholder.typicode.com/users/${userId}/todos`,
     );
-    const todos = await response.json();
-    return todos;
+    const tasks = await response.json();
+    return tasks;
   } catch (error) {
     console.error("Erro ao buscar tarefas do usuário:", error.message);
   }

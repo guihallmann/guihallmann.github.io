@@ -45,7 +45,7 @@ onMounted(async () => {
           >Albums 📸</router-link
         >
         <router-link
-          :to="{ name: 'userTodos', params: { id: user.id } }"
+          :to="{ name: 'userTasks', params: { id: user.id } }"
           class="text-slate-800 text-xl font-medium p-2"
           >Tasks ✔</router-link
         >

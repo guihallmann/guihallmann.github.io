@@ -25,12 +25,6 @@ const isBurgerMenuOpen = ref(false);
       <router-link to="/albums" class="text-slate-800 font-medium"
         >Albums</router-link
       >
-      <router-link to="/photos" class="text-slate-800 font-medium"
-        >Photos</router-link
-      >
-      <router-link to="/todos" class="text-slate-800 font-medium"
-        >Todos</router-link
-      >
     </div>
   </div>
 </template>

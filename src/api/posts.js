@@ -1,4 +1,4 @@
-const getAllPosts = async () => {
+export const getAllPosts = async () => {
   try {
     const response = await fetch("https://jsonplaceholder.typicode.com/posts");
     const posts = await response.json();
@@ -8,7 +8,7 @@ const getAllPosts = async () => {
   }
 };
 
-const getPost = async (postId) => {
+export const getPost = async (postId) => {
   try {
     const response = await fetch(
       `https://jsonplaceholder.typicode.com/posts/${postId}`,
@@ -20,7 +20,7 @@ const getPost = async (postId) => {
   }
 };
 
-const getPostComments = async (postId) => {
+export const getPostComments = async (postId) => {
   try {
     const response = await fetch(
       `https://jsonplaceholder.typicode.com/posts/${postId}/comments`,

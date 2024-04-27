@@ -25,7 +25,7 @@ onMounted(async () => {
         </p>
       </div>
       <div v-else>
-        <p class="text-2xl text-center font-bold text-slate-800 mb-4">
+        <p class="text-3xl font-bold text-slate-800 mb-4">
           { {{ album.title }} }
         </p>
         <div class="grid grid-cols-5 gap-8">

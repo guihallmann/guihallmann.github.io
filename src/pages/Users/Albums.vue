@@ -27,7 +27,7 @@ onMounted(async () => {
       </div>
       <div v-else>
         <p class="text-3xl font-bold text-slate-800 mb-4">
-          { {{ user.name }} albums}
+          { {{ user.name }} <span class="text-indigo-600">albums</span>}
         </p>
 
         <div v-for="album in albums">

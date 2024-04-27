@@ -1,18 +1,14 @@
 <script setup>
 import Layout from "../../components/shared/Layout.vue";
 import PostCard from "../../components/shared/PostCard.vue";
+import { getAllPosts } from "../../api/posts";
 import { ref, onMounted } from "vue";
-import { useRoute, RouterLink } from "vue-router";
-import { getUserPosts, getUser } from "../../api/users";
+import { RouterLink } from "vue-router";
 
-const user = ref([]);
 const posts = ref([]);
 const isLoading = ref(true);
-const route = useRoute();
 onMounted(async () => {
-  const fetchedPosts = await getUserPosts(route.params.id);
-  const fetchedUser = await getUser(route.params.id);
-  user.value = fetchedUser;
+  const fetchedPosts = await getAllPosts();
   posts.value = fetchedPosts;
   isLoading.value = false;
 });
@@ -26,10 +22,8 @@ onMounted(async () => {
         </p>
       </div>
       <div v-else>
-        <p class="text-3xl font-bold text-slate-800 mb-4">
-          { {{ user.name }} <span class="text-indigo-600">posts</span>}
-        </p>
-        <div v-if="posts" v-for="post in posts">
+        <p class="text-3xl font-bold text-slate-800 mb-4">{ Posts }</p>
+        <div v-if="posts" v-for="post in posts" class="py-1">
           <router-link :to="{ name: 'post', params: { id: post.id } }">
             <PostCard :title="post.title" :body="post.body" />
           </router-link>

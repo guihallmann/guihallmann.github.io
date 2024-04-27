@@ -1,19 +1,19 @@
 <script setup>
 import Layout from "../../components/shared/Layout.vue";
-import PostCard from "../../components/shared/PostCard.vue";
+import CommentCard from "../../components/shared/CommentCard.vue";
 import { ref, onMounted } from "vue";
 import { useRoute, RouterLink } from "vue-router";
-import { getUserPosts, getUser } from "../../api/users";
+import { getPost, getPostComments } from "../../api/posts";
 
-const user = ref([]);
-const posts = ref([]);
+const comments = ref([]);
+const post = ref([]);
 const isLoading = ref(true);
 const route = useRoute();
 onMounted(async () => {
-  const fetchedPosts = await getUserPosts(route.params.id);
-  const fetchedUser = await getUser(route.params.id);
-  user.value = fetchedUser;
-  posts.value = fetchedPosts;
+  const fetchedComments = await getPostComments(route.params.id);
+  const fetchedPost = await getPost(route.params.id);
+  comments.value = fetchedComments;
+  post.value = fetchedPost;
   isLoading.value = false;
 });
 </script>
@@ -27,13 +27,12 @@ onMounted(async () => {
       </div>
       <div v-else>
         <p class="text-3xl font-bold text-slate-800 mb-4">
-          { {{ user.name }} <span class="text-indigo-600">posts</span>}
+          { {{ post.title }} }
         </p>
-        <div v-if="posts" v-for="post in posts">
-          <router-link :to="{ name: 'post', params: { id: post.id } }">
-            <PostCard :title="post.title" :body="post.body" />
-          </router-link>
-          <hr />
+        <p class="text-slate-800 text-md font-light mb-4">{{ post.body }}</p>
+        <p class="text-xl font-bold text-indigo-600 mb-4">{ Comments }</p>
+        <div v-if="comments" v-for="comment in comments" class="py-2">
+          <CommentCard :email="comment.email" :body="comment.body" />
         </div>
       </div>
     </section>

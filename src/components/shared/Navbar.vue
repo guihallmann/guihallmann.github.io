@@ -6,7 +6,7 @@ import { RouterLink } from "vue-router";
   <nav class="flex w-full justify-between items-center p-4 border-b">
     <router-link
       to="/"
-      class="text-2xl font-bold text-slate-800 hover:text-slate-600 hover:animate-pulse"
+      class="bg-gradient-to-r from-yellow-500 via-green-500 to-blue-500 text-transparent bg-clip-text font-bold text-4xl"
       >TP3</router-link
     >
     <div class="hidden sm:flex sm:space-x-8">
@@ -24,16 +24,6 @@ import { RouterLink } from "vue-router";
         to="/albums"
         class="text-slate-800 font-medium hover:underline"
         >Albums</router-link
-      >
-      <router-link
-        to="/photos"
-        class="text-slate-800 font-medium hover:underline"
-        >Photos</router-link
-      >
-      <router-link
-        to="/todos"
-        class="text-slate-800 font-medium hover:underline"
-        >Tasks</router-link
       >
     </div>
     <div class="sm:hidden z-50">

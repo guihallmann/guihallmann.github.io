@@ -1,4 +1,4 @@
-const getAllAlbums = async () => {
+export const getAllAlbums = async () => {
   try {
     const response = await fetch("https://jsonplaceholder.typicode.com/albums");
     const albums = await response.json();
@@ -8,7 +8,7 @@ const getAllAlbums = async () => {
   }
 };
 
-const getAlbum = async (albumId) => {
+export const getAlbum = async (albumId) => {
   try {
     const response = await fetch(
       `https://jsonplaceholder.typicode.com/albums/${albumId}`,
@@ -20,7 +20,7 @@ const getAlbum = async (albumId) => {
   }
 };
 
-const getAlbumPhotos = async (albumId) => {
+export const getAlbumPhotos = async (albumId) => {
   try {
     const response = await fetch(
       `https://jsonplaceholder.typicode.com/albums/${albumId}/photos`,

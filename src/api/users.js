@@ -1,4 +1,4 @@
-const getAllUsers = async () => {
+export const getAllUsers = async () => {
   try {
     const response = await fetch("https://jsonplaceholder.typicode.com/users");
     const users = await response.json();
@@ -8,7 +8,7 @@ const getAllUsers = async () => {
   }
 };
 
-const getUser = async (userId) => {
+export const getUser = async (userId) => {
   try {
     const response = await fetch(
       `https://jsonplaceholder.typicode.com/users/${userId}`,
@@ -20,7 +20,7 @@ const getUser = async (userId) => {
   }
 };
 
-const getUserAlbums = async (userId) => {
+export const getUserAlbums = async (userId) => {
   try {
     const response = await fetch(
       `https://jsonplaceholder.typicode.com/users/${userId}/albums`,
@@ -32,7 +32,7 @@ const getUserAlbums = async (userId) => {
   }
 };
 
-const getUserTodos = async (userId) => {
+export const getUserTodos = async (userId) => {
   try {
     const response = await fetch(
       `https://jsonplaceholder.typicode.com/users/${userId}/todos`,
@@ -44,11 +44,13 @@ const getUserTodos = async (userId) => {
   }
 };
 
-const getUserPosts = async (userId) => {
+export const getUserPosts = async (userId) => {
   try {
     const response = await fetch(
       `https://jsonplaceholder.typicode.com/users/${userId}/posts`,
     );
+    const posts = await response.json();
+    return posts;
   } catch (error) {
     console.error("Erro ao buscar posts do usuário:", error.message);
   }
